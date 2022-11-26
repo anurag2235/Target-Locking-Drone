@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # LOCK ON TO TARGET
+# right now only left right alignment supported
+#further improvement in production
+
 from __future__ import print_function
 from email.mime import image
 from geopy.distance import geodesic as GD
@@ -80,15 +83,13 @@ def lock():
  elif a>120 and b<120:
         z=sqrt((d*d)-(120-b)(120-b))    
  elif a<120 and b>120:
-        z=sqrt((d*d)-(120-b)(120-b))        
+        z=sqrt((d*d)-(b-120)(b-120))        
  elif a>120 and b>120:
-        z=sqrt((d*d)-(120-b)(120-b))  
+        z=sqrt((d*d)-(b-120)(b-120))  
  return z       
 ######################################
 ######################################
 #MAIN PROGRAMME
-#right now only left right alignment supported
-#further improvement in production
 while 1:    
  c=getc()
  if c!=0:
@@ -103,4 +104,4 @@ while 1:
  if a>240:
   send_body_ned_velocity1(0,0.2,0,1000)
  elif a<240:
-  send_body_ned_velocity1(0,-0.2,0,1000)  
+  send_body_ned_velocity1(0,-0.2,0,1000)
